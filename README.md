@@ -1,6 +1,6 @@
 # Acklio microIPCore demo
 
-## What is SHCH
+## What is SCHC
 
 SCHC is a compression and fragmentation framework tailored for LPWAN
 
