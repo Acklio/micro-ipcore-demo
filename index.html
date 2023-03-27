@@ -219,10 +219,10 @@
 			};
 			var deviceId1 = "1122334455667788";
 			var deviceId2 = "1122334455667799";
-			var deviceData1 =
-				"YAObTAANEUAAAAAAAAAAAAAAAAAAAAABIAEWBgAAAAAAAAAAAAAAAhYzFjMADVmSaGVsbG8=";
-			var deviceData2 =
-				"YAObTAANEUAAAAAAAAAAAAAAAAAAAAABIAEWBgAAAAAAAAAAAAAAAxYzFjMADVmSaGVsbG8=";
+			var dataFromDevice1 = "YAObTAANEUAgARYGAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAARYzFjMADVmSaGVsbG8=";
+			var dataToDevice1 =	"YAObTAANEUAAAAAAAAAAAAAAAAAAAAABIAEWBgAAAAAAAAAAAAAAAhYzFjMADVmSaGVsbG8=";
+			var dataFromDevice2 =   "YAObTAANEUAgARYGAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAARYzFjMADVmSaGVsbG8=";
+			var dataToDevice2 = "YAObTAANEUAAAAAAAAAAAAAAAAAAAAABIAEWBgAAAAAAAAAAAAAAAxYzFjMADVmSaGVsbG8=";
 
 			var messages = document.getElementById("messages");
 
@@ -256,7 +256,7 @@
 			device1SendButton.addEventListener("click", function (e) {
 				e.preventDefault();
 				sentMessage.device_id = deviceId1;
-				sentMessage.data = deviceData1;
+				sentMessage.data = dataFromDevice1;
 				console.log("send message to server", sentMessage);
 
 				socket.emit("server", sentMessage);
@@ -267,7 +267,7 @@
 			device2SendButton.addEventListener("click", function (e) {
 				e.preventDefault();
 				sentMessage.device_id = deviceId2;
-				sentMessage.data = deviceData2;
+				sentMessage.data = dataFromDevice2;
 				console.log("send message to server", sentMessage);
 
 				socket.emit("server", sentMessage);
@@ -280,7 +280,7 @@
 			serverSendMessageToDevice1Button.addEventListener("click", function (e) {
 				e.preventDefault();
 				sentMessage.device_id = deviceId1;
-				sentMessage.data = deviceData1;
+				sentMessage.data = dataToDevice1;
 				console.log("send message to device 1", sentMessage);
 
 				socket.emit("device", sentMessage);
@@ -293,7 +293,7 @@
 			serverSendMessageToDevice2Button.addEventListener("click", function (e) {
 				e.preventDefault();
 				sentMessage.device_id = deviceId2;
-				sentMessage.data = deviceData2;
+				sentMessage.data = dataToDevice2;
 				console.log("send message to device 2", sentMessage);
 
 				socket.emit("device", sentMessage);
