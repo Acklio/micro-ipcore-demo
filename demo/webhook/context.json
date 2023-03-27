@@ -1,0 +1,638 @@
+{
+    "devices": [
+        {
+            "id": "1122334455667788",
+            "iP6Address": "2001:1606::2",
+            "technology": "LORAWAN",
+            "nonMatchingRule": 150,
+            "mtuTxLink": 100,
+            "compressionContext": {
+              "context": {
+                "rules": [
+                  {
+                    "ruleId": 28,
+                    "flows": [
+                      {
+                        "ruleEntries": [
+                          {
+                            "fieldName": "IP6_VERSION",
+                            "fieldLength": 4,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "EQUAL"
+                            },
+                            "targetValue": [
+                              "6"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "Bg=="
+                            ],
+                            "description": "Example value: 6",
+                            "displayName": "IPv6 Version"
+                          },
+                          {
+                            "fieldName": "IP6_TRAFFIC_CLASS",
+                            "fieldLength": 8,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "IGNORE"
+                            },
+                            "targetValue": [
+                              "0"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "AA=="
+                            ],
+                            "description": "Example value: 0",
+                            "displayName": "IPv6 Traffic Class"
+                          },
+                          {
+                            "fieldName": "IP6_FLOW_LABEL",
+                            "fieldLength": 20,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "IGNORE"
+                            },
+                            "targetValue": [
+                              "0x00012345"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "EjRQAA=="
+                            ],
+                            "description": "Example value: 0x00012345",
+                            "displayName": "IPv6 Flow Label"
+                          },
+                          {
+                            "fieldName": "IP6_LENGTH",
+                            "fieldLength": 16,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "IGNORE"
+                            },
+                            "cdactionFunction": "ComputeIPv6Length",
+                            "targetValue": [
+                              "0"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "AAA="
+                            ],
+                            "description": "Example value: ignore as it is computed dynamically",
+                            "displayName": "IPv6 Length"
+                          },
+                          {
+                            "fieldName": "IP6_NEXT_HEADER",
+                            "fieldLength": 8,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "IGNORE"
+                            },
+                            "targetValue": [
+                              "0x11"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "EQ=="
+                            ],
+                            "description": "Example value: 17 for UDP",
+                            "displayName": "IPv6 Next Header"
+                          },
+                          {
+                            "fieldName": "IP6_HOP_LIMIT",
+                            "fieldLength": 8,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "IGNORE"
+                            },
+                            "targetValue": [
+                              "64"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "QA=="
+                            ],
+                            "description": "Example value: 64",
+                            "displayName": "IPv6 Hop Limit"
+                          },
+                          {
+                            "fieldName": "IP6_DEV_PREFIX",
+                            "fieldLength": 64,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "EQUAL"
+                            },
+                            "targetValue": [
+                              "2001:1606:0000:0000::"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "IAEWBgAAAAA="
+                            ],
+                            "description": "Example value: 2001:: (suffix :: is a must)",
+                            "displayName": "IPv6 Dev Prefix"
+                          },
+                          {
+                            "fieldName": "IP6_DEV_IID",
+                            "fieldLength": 64,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "EQUAL"
+                            },
+                            "targetValue": [
+                              "::0000:0000:0000:0002"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "AAAAAAAAAAI="
+                            ],
+                            "description": "Example value: ::1 (prefix :: is a must)",
+                            "displayName": "IPv6 Dev IID"
+                          },
+                          {
+                            "fieldName": "IP6_APP_PREFIX",
+                            "fieldLength": 64,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "EQUAL"
+                            },
+                            "targetValue": [
+                              "::"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "AAAAAAAAAAA="
+                            ],
+                            "description": "Example value: 2001:: (suffix :: is a must)",
+                            "displayName": "IPv6 App Prefix"
+                          },
+                          {
+                            "fieldName": "IP6_APP_IID",
+                            "fieldLength": 64,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "EQUAL"
+                            },
+                            "targetValue": [
+                              "::1"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "AAAAAAAAAAE="
+                            ],
+                            "description": "Example value: ::1 (prefix :: is a must)",
+                            "displayName": "IPv6 App IID"
+                          },
+                          {
+                            "fieldName": "UDP_DEV_PORT",
+                            "fieldLength": 16,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "EQUAL"
+                            },
+                            "targetValue": [
+                              "5683"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "FjM="
+                            ],
+                            "description": "Example value: 5684",
+                            "displayName": "UDP Dev Port"
+                          },
+                          {
+                            "fieldName": "UDP_APP_PORT",
+                            "fieldLength": 16,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "EQUAL"
+                            },
+                            "targetValue": [
+                              "5683"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "FjM="
+                            ],
+                            "description": "Example value: 5683",
+                            "displayName": "UDP App Port"
+                          },
+                          {
+                            "fieldName": "UDP_LENGTH",
+                            "fieldLength": 16,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "IGNORE"
+                            },
+                            "cdactionFunction": "ComputeUDPLength",
+                            "targetValue": [
+                              "0"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "AAA="
+                            ],
+                            "description": "Example value: ignore as it is computed dynamically",
+                            "displayName": "UDP Length"
+                          },
+                          {
+                            "fieldName": "UDP_CHECKSUM",
+                            "fieldLength": 16,
+                            "fieldPosition": 1,
+                            "matchingOperator": {
+                              "type": "IGNORE"
+                            },
+                            "cdactionFunction": "ComputeUDPChecksum",
+                            "targetValue": [
+                              "0"
+                            ],
+                            "direction": "BI",
+                            "targetByte": [
+                              "AAA="
+                            ],
+                            "description": "Example value: ignore as it is computed dynamically",
+                            "displayName": "UDP Checksum"
+                          }
+                        ]
+                      }
+                    ],
+                    "stack": {
+                      "stackType": "IP6_UDP",
+                      "displayName": "IPv6_UDP"
+                    }
+                  }
+                ]
+              },
+              "isResolved": true
+            },
+            "fragmentationContext": {
+              "context": {
+                "20": {
+                    "fragmentationParam": {
+                      "mode": "ACKOnError",
+                      "ruleIdSize": 8,
+                      "tileSize": 32,
+                      "dTagSize":0,
+                      "wSize": 4,
+                      "maxAck": 3,
+                      "winSize": 8,
+                      "retransmissionTime": 20,
+                      "all1RetransmissionTime": 20,
+                      "inactivityTime": 20,
+                      "aoeSpecs": {},
+                      "dTagReleaseTime": 20,
+                      "optaoeSpecs": {},
+                      "qos": "SystematicReport"
+                    },
+                    "ruleId": 20
+                  },
+                  "21": {
+                    "direction": "FRAG_DOWNLINK",
+                    "fragmentationParam": {
+                      "mode": "ACKOnError",
+                      "ruleIdSize": 8,
+                      "tileSize": 32,
+                      "dTagSize":0,
+                      "wSize": 4,
+                      "maxAck": 3,
+                      "winSize": 8,
+                      "retransmissionTime": 20,
+                      "all1RetransmissionTime": 20,
+                      "inactivityTime": 20,
+                      "aoeSpecs": {},
+                      "dTagReleaseTime": 20,
+                      "optaoeSpecs": {}
+                    },
+                    "ruleId": 21
+                  }
+              }
+            },
+            "syncContext": {
+              "ruleID": 151
+            },
+            "miscellaneousContext": {},
+            "dtlsContext": {
+              "ruleID": 152
+            }
+        },
+        {
+          "id": "1122334455667799",
+          "iP6Address": "2001:1606::3",
+          "technology": "LORAWAN",
+          "nonMatchingRule": 150,
+          "mtuTxLink": 100,
+          "compressionContext": {
+            "context": {
+              "rules": [
+                {
+                  "ruleId": 28,
+                  "flows": [
+                    {
+                      "ruleEntries": [
+                        {
+                          "fieldName": "IP6_VERSION",
+                          "fieldLength": 4,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "EQUAL"
+                          },
+                          "targetValue": [
+                            "6"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "Bg=="
+                          ],
+                          "description": "Example value: 6",
+                          "displayName": "IPv6 Version"
+                        },
+                        {
+                          "fieldName": "IP6_TRAFFIC_CLASS",
+                          "fieldLength": 8,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "IGNORE"
+                          },
+                          "targetValue": [
+                            "0"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "AA=="
+                          ],
+                          "description": "Example value: 0",
+                          "displayName": "IPv6 Traffic Class"
+                        },
+                        {
+                          "fieldName": "IP6_FLOW_LABEL",
+                          "fieldLength": 20,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "IGNORE"
+                          },
+                          "targetValue": [
+                            "0x00012345"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "EjRQAA=="
+                          ],
+                          "description": "Example value: 0x00012345",
+                          "displayName": "IPv6 Flow Label"
+                        },
+                        {
+                          "fieldName": "IP6_LENGTH",
+                          "fieldLength": 16,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "IGNORE"
+                          },
+                          "cdactionFunction": "ComputeIPv6Length",
+                          "targetValue": [
+                            "0"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "AAA="
+                          ],
+                          "description": "Example value: ignore as it is computed dynamically",
+                          "displayName": "IPv6 Length"
+                        },
+                        {
+                          "fieldName": "IP6_NEXT_HEADER",
+                          "fieldLength": 8,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "IGNORE"
+                          },
+                          "targetValue": [
+                            "0x11"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "EQ=="
+                          ],
+                          "description": "Example value: 17 for UDP",
+                          "displayName": "IPv6 Next Header"
+                        },
+                        {
+                          "fieldName": "IP6_HOP_LIMIT",
+                          "fieldLength": 8,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "IGNORE"
+                          },
+                          "targetValue": [
+                            "64"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "QA=="
+                          ],
+                          "description": "Example value: 64",
+                          "displayName": "IPv6 Hop Limit"
+                        },
+                        {
+                          "fieldName": "IP6_DEV_PREFIX",
+                          "fieldLength": 64,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "EQUAL"
+                          },
+                          "targetValue": [
+                            "2001:1606:0000:0000::"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "IAEWBgAAAAA="
+                          ],
+                          "description": "Example value: 2001:: (suffix :: is a must)",
+                          "displayName": "IPv6 Dev Prefix"
+                        },
+                        {
+                          "fieldName": "IP6_DEV_IID",
+                          "fieldLength": 64,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "EQUAL"
+                          },
+                          "targetValue": [
+                            "::0000:0000:0000:0003"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "AAAAAAAAAAM="
+                          ],
+                          "description": "Example value: ::1 (prefix :: is a must)",
+                          "displayName": "IPv6 Dev IID"
+                        },
+                        {
+                          "fieldName": "IP6_APP_PREFIX",
+                          "fieldLength": 64,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "EQUAL"
+                          },
+                          "targetValue": [
+                            "::"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "AAAAAAAAAAA="
+                          ],
+                          "description": "Example value: 2001:: (suffix :: is a must)",
+                          "displayName": "IPv6 App Prefix"
+                        },
+                        {
+                          "fieldName": "IP6_APP_IID",
+                          "fieldLength": 64,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "EQUAL"
+                          },
+                          "targetValue": [
+                            "::1"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "AAAAAAAAAAE="
+                          ],
+                          "description": "Example value: ::1 (prefix :: is a must)",
+                          "displayName": "IPv6 App IID"
+                        },
+                        {
+                          "fieldName": "UDP_DEV_PORT",
+                          "fieldLength": 16,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "EQUAL"
+                          },
+                          "targetValue": [
+                            "5683"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "FjM="
+                          ],
+                          "description": "Example value: 5684",
+                          "displayName": "UDP Dev Port"
+                        },
+                        {
+                          "fieldName": "UDP_APP_PORT",
+                          "fieldLength": 16,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "EQUAL"
+                          },
+                          "targetValue": [
+                            "5683"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "FjM="
+                          ],
+                          "description": "Example value: 5683",
+                          "displayName": "UDP App Port"
+                        },
+                        {
+                          "fieldName": "UDP_LENGTH",
+                          "fieldLength": 16,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "IGNORE"
+                          },
+                          "cdactionFunction": "ComputeUDPLength",
+                          "targetValue": [
+                            "0"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "AAA="
+                          ],
+                          "description": "Example value: ignore as it is computed dynamically",
+                          "displayName": "UDP Length"
+                        },
+                        {
+                          "fieldName": "UDP_CHECKSUM",
+                          "fieldLength": 16,
+                          "fieldPosition": 1,
+                          "matchingOperator": {
+                            "type": "IGNORE"
+                          },
+                          "cdactionFunction": "ComputeUDPChecksum",
+                          "targetValue": [
+                            "0"
+                          ],
+                          "direction": "BI",
+                          "targetByte": [
+                            "AAA="
+                          ],
+                          "description": "Example value: ignore as it is computed dynamically",
+                          "displayName": "UDP Checksum"
+                        }
+                      ]
+                    }
+                  ],
+                  "stack": {
+                    "stackType": "IP6_UDP",
+                    "displayName": "IPv6_UDP"
+                  }
+                }
+              ]
+            },
+            "isResolved": true
+          },
+          "fragmentationContext": {
+            "context": {
+              "20": {
+                  "fragmentationParam": {
+                    "mode": "ACKOnError",
+                    "ruleIdSize": 8,
+                    "tileSize": 32,
+                    "dTagSize":0,
+                    "wSize": 4,
+                    "maxAck": 3,
+                    "winSize": 8,
+                    "retransmissionTime": 20,
+                    "all1RetransmissionTime": 20,
+                    "inactivityTime": 20,
+                    "aoeSpecs": {},
+                    "dTagReleaseTime": 20,
+                    "optaoeSpecs": {},
+                    "qos": "SystematicReport"
+                  },
+                  "ruleId": 20
+                },
+                "21": {
+                  "direction": "FRAG_DOWNLINK",
+                  "fragmentationParam": {
+                    "mode": "ACKOnError",
+                    "ruleIdSize": 8,
+                    "tileSize": 32,
+                    "dTagSize":0,
+                    "wSize": 4,
+                    "maxAck": 3,
+                    "winSize": 8,
+                    "retransmissionTime": 20,
+                    "all1RetransmissionTime": 20,
+                    "inactivityTime": 20,
+                    "aoeSpecs": {},
+                    "dTagReleaseTime": 20,
+                    "optaoeSpecs": {}
+                  },
+                  "ruleId": 21
+                }
+            }
+          },
+          "syncContext": {
+            "ruleID": 151
+          },
+          "miscellaneousContext": {},
+          "dtlsContext": {
+            "ruleID": 152
+          }
+      }
+    ]
+}

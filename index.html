@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>microIPCore Demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8" />
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+
+		<!-- Font Awesome Link -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+			integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+			crossorigin="anonymous"
+		/>
+		<!-- stylesheet -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"
+		/>
+		<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
+	</head>
+	<body>
+		<div class="container mx-auto">
+			<h1 class="text-2xl font-bold">microIPCore Demo</h1>
+			<p class="my-5">This demo showcase packet sent between two microIPCore</p>
+		</div>
+		<div class="container mx-auto mt-8">
+			<div class="flex flex-row">
+				<div class="basis-1/5 ml-2 mr-2 mt-2">
+					<div
+						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border"
+					>
+						<div class="mx-4 -mt-6 translate-y-0 h-48">
+							<img
+								class="rounded-lg max-h-48"
+								src="./img/device.jpg"
+								alt="card image"
+							/>
+						</div>
+						<div class="text-secondary flex-1 p-6">
+							<a href="#">
+								<h4 class="font-bold text-blue-500">Device 1</h4>
+							</a>
+							<p class="opcacity-60 mb-3">
+								The device can send and receive IP packets to the microIPCore.
+							</p>
+							<button
+								class="middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+								data-ripple-light="true"
+								id="device1SendButton"
+							>
+								Send a message to the server
+							</button>
+							<div
+								class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
+								id="device1ReceivedMessage"
+							>
+								<div class="mt-px">message received</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border mt-8"
+					>
+						<div class="mx-4 -mt-6 translate-y-0 h-48">
+							<img
+								class="rounded-lg max-h-48"
+								src="./img/device.jpg"
+								alt="card image"
+							/>
+						</div>
+						<div class="text-secondary flex-1 p-6">
+							<a href="#">
+								<h4 class="font-bold text-blue-500">Device 2</h4>
+							</a>
+							<p class="opcacity-60 mb-3">
+								The device can send and receive IP packets to the server. All
+								the packets are compressed on the microIPCore.
+							</p>
+							<button
+								class="middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+								data-ripple-light="true"
+								id="device2SendButton"
+							>
+								Send a message to the server
+							</button>
+							<div
+								class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
+								id="device2ReceivedMessage"
+							>
+								<div class="mt-px">message received</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="basis-1/5 ml-2 mr-2 mt-2">
+					<div
+						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border"
+					>
+						<div class="mx-4 -mt-6 translate-y-0 h-48">
+							<img
+								class="rounded-lg max-h-48"
+								src="./img/gateway.jpg"
+								alt="card image"
+							/>
+						</div>
+						<div class="text-secondary flex-1 p-6">
+							<h4 class="font-bold text-blue-500">microIPCore Gateway</h4>
+							<p class="opcacity-60 mb-3">
+								The microIPCore is in Gateway mode. It compress every packet and
+								send them to the server.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="basis-1/5 ml-2 mr-2 mt-2">
+					<div
+						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border"
+					>
+						<div class="mx-4 -mt-6 translate-y-0 h-48">
+							<img
+								class="rounded-lg"
+								src="./img/cloud.jpg"
+								alt="card image"
+							/>
+						</div>
+						<div class="text-secondary flex-1 p-6">
+							<h4 class="font-bold text-blue-500">Internet</h4>
+							<p class="opcacity-60 mb-3">
+								The compressed packets are exchanged over the Internet.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="basis-1/5 ml-2 mr-2 mt-2">
+					<div
+						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border"
+					>
+						<div class="mx-4 -mt-6 translate-y-0 h-48">
+							<img
+								class="rounded-lg"
+								src="./img/router.jpg"
+								alt="card image"
+							/>
+						</div>
+						<div class="text-secondary flex-1 p-6">
+							<h4 class="font-bold text-blue-500">microIPCore Cloud</h4>
+							<p class="opcacity-60 mb-3">
+								The microIPCore is in Cloud mode. It decompress every packet and
+								send them uncompressed to the App Server.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="basis-1/5 ml-2 mr-2 mt-2">
+					<div
+						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border"
+					>
+						<div class="mx-4 -mt-6 translate-y-0 h-48">
+								<img
+									class="rounded-lg"
+									src="./img/server.jpg"
+									alt="card image"
+								/>
+						</div>
+						<div class="text-secondary flex-1 p-6">
+							<h4 class="font-bold text-blue-500">App Server</h4>
+							<p class="opcacity-60 mb-3">
+								The App Server can send data back to the devices. All the data
+								will be compressed by the microIPCore.
+							</p>
+							<button
+								class="middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+								data-ripple-light="true"
+								id="serverSendMessageToDevice1Button"
+							>
+								Send a message to the device 1
+							</button>
+							<div
+								class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
+								id="serverReceivedMessageFromDevice1"
+							>
+								<div class="mt-px">message received from device 1</div>
+							</div>
+							<button
+								class="middle none center mt-4 rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+								data-ripple-light="true"
+								id="serverSendMessageToDevice2Button"
+							>
+								Send a message to the device 2
+							</button>
+							<div
+								class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
+								id="serverReceivedMessageFromDevice2"
+							>
+								<div class="mt-px">message received from device 2</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="container mx-auto">
+			<h1>Log</h1>
+			<ul id="log"></ul>
+		</div> -->
+		<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+		<script>
+			var socket = io();
+
+			var sentMessage = {
+				organization: "acklio",
+				device_id: "",
+				data: "",
+			};
+			var deviceId1 = "1122334455667788";
+			var deviceId2 = "1122334455667799";
+			var deviceData1 =
+				"YAObTAANEUAAAAAAAAAAAAAAAAAAAAABIAEWBgAAAAAAAAAAAAAAAhYzFjMADVmSaGVsbG8=";
+			var deviceData2 =
+				"YAObTAANEUAAAAAAAAAAAAAAAAAAAAABIAEWBgAAAAAAAAAAAAAAAxYzFjMADVmSaGVsbG8=";
+
+			var messages = document.getElementById("messages");
+
+			// remove a class from an element
+			function hightlightElement(id) {
+				var element = document.getElementById(id);
+				element.classList.remove("bg-gray-500");
+				element.classList.add("bg-green-500");
+				// wait 2 seconds and remove the class
+				setTimeout(function () {
+					element.classList.remove("bg-green-500");
+					element.classList.add("bg-gray-500");
+				}, 2000);
+			}
+
+			device1ReceivedMessage = document.getElementById(
+				"device1ReceivedMessage"
+			);
+			device2ReceivedMessage = document.getElementById(
+				"device2ReceivedMessage"
+			);
+			serverReceivedMessageFromDevice1 = document.getElementById(
+				"serverReceivedMessageFromDevice1"
+			);
+			serverReceivedMessageFromDevice2 = document.getElementById(
+				"serverReceivedMessageFromDevice2"
+			);
+
+			// Create a event listener for the device 1 send button
+			var device1SendButton = document.getElementById("device1SendButton");
+			device1SendButton.addEventListener("click", function (e) {
+				e.preventDefault();
+				sentMessage.device_id = deviceId1;
+				sentMessage.data = deviceData1;
+				console.log("send message to server", sentMessage);
+
+				socket.emit("server", sentMessage);
+			});
+
+			// Create a event listener for the device 2 send button
+			var device2SendButton = document.getElementById("device2SendButton");
+			device2SendButton.addEventListener("click", function (e) {
+				e.preventDefault();
+				sentMessage.device_id = deviceId2;
+				sentMessage.data = deviceData2;
+				console.log("send message to server", sentMessage);
+
+				socket.emit("server", sentMessage);
+			});
+
+			// Create a event listener for the server send button
+			var serverSendMessageToDevice1Button = document.getElementById(
+				"serverSendMessageToDevice1Button"
+			);
+			serverSendMessageToDevice1Button.addEventListener("click", function (e) {
+				e.preventDefault();
+				sentMessage.device_id = deviceId1;
+				sentMessage.data = deviceData1;
+				console.log("send message to device 1", sentMessage);
+
+				socket.emit("device", sentMessage);
+			});
+
+			// Create a event listener for the server send button
+			var serverSendMessageToDevice2Button = document.getElementById(
+				"serverSendMessageToDevice2Button"
+			);
+			serverSendMessageToDevice2Button.addEventListener("click", function (e) {
+				e.preventDefault();
+				sentMessage.device_id = deviceId2;
+				sentMessage.data = deviceData2;
+				console.log("send message to device 2", sentMessage);
+
+				socket.emit("device", sentMessage);
+			});
+
+			socket.on("server_packet", function (msg) {
+				if (msg.device_id == deviceId1) {
+					hightlightElement("serverReceivedMessageFromDevice1");
+				} else {
+					hightlightElement("serverReceivedMessageFromDevice2");
+				}
+			});
+
+			socket.on("device_packet", function (msg) {
+				if (msg.device_id == deviceId1) {
+					hightlightElement("device1ReceivedMessage");
+				} else {
+					hightlightElement("device2ReceivedMessage");
+				}
+			});
+		</script>
+	</body>
+</html>

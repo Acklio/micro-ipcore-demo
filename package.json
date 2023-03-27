@@ -1,0 +1,14 @@
+{
+  "name": "demo-micro-ipcore",
+  "version": "1.0.0",
+  "description": "Acklio Micro IP Core",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@material-tailwind/html": "^2.0.0",
+    "express": "^4.18.2",
+    "request": "^2.88.2",
+    "socket.io": "^4.6.1"
+  }
+}
