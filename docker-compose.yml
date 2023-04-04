@@ -14,7 +14,7 @@ services:
       - MICRO_IPCORE_CLOUD=http://micro-ipcore-cloud:5684
     command: npm run start
   micro-ipcore-device:
-    image: docker.io/acklio/micro-ipcore:v0.1
+    image: docker.io/acklio/micro-ipcore
     container_name: micro-ipcore-device
     restart: always
     volumes:
@@ -24,7 +24,7 @@ services:
       - --config=/opt/acklio/demo/webhook/config-device.json
       - --context_path=/opt/acklio/demo/webhook/context.json
   micro-ipcore-cloud:
-    image: docker.io/acklio/micro-ipcore:v0.1
+    image: docker.io/acklio/micro-ipcore
     container_name: micro-ipcore-cloud
     restart: always
     volumes:
