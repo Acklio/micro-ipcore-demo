@@ -2,7 +2,7 @@
     "log_level":5,
     "context_path": "demo/webhook/context.json",
     "core_mode": 0,
-    "bind_addr": "localhost:5684",
+    "bind_addr": "0.0.0.0:5684",
     "ip_remote_addr":"http://localhost:3000/webhook_server",
     "lpwan_remote_addr":"http://localhost:5683/webhook/lpwan-packet"
 }

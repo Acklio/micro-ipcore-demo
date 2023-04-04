@@ -35,7 +35,7 @@ io.on("connection", (socket) => {
 		// To avoid CORS problem, we send POST request from NodeJs
 		request.post(
 			{
-				url: "http://localhost:5684/webhook/ip-packet",
+				url: process.env.MICRO_IPCORE_CLOUD + "/webhook/ip-packet",
 				json: msg,
 			},
 			function (error, response, body) {
@@ -50,7 +50,7 @@ io.on("connection", (socket) => {
 		// To avoid CORS problem, we send POST request from NodeJs
 		request.post(
 			{
-				url: "http://localhost:5683/webhook/ip-packet",
+				url: process.env.MICRO_IPCORE_DEVICE + "/webhook/ip-packet",
 				json: msg,
 			},
 			function (error, response, body) {
