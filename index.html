@@ -314,6 +314,10 @@
 					hightlightElement("device2ReceivedMessage");
 				}
 			});
+            socket.on("micro-ipcore-log", function (msg) {
+                // log the message comming from the micro-ipcore
+                console.log("micro-ipcore-log", msg);
+            });
 		</script>
 	</body>
 </html>
