@@ -118,10 +118,26 @@ INFO[0000] core-schc initialized                         mode=Cloud
  └───────────────────────────────────────────────────┘
 ```
 
+## Run in Docker
+
+There's a docker-compose file in the demo folder. You can launch the demo with the following command:
+
+```bash
+  docker-compose up
+```
+
+Your microIPCore demo will be available on the 3000 port.
+
 ## Demo
 
 Open your browser and go to http://localhost:3000
 
 You should be able to send packets from devices to server and from server to devices.
 
+If you open the developer console, you should see the logs of the two microIPCores.
+
 Enjoy!
+
+## Logs considerations
+
+If you read the index.js file, you will see that we listen for all incoming udp messages on the 3001 port. This is a trick to be able to see the logs of the microIPCore. The microIPCore is not logging on the console but on the udp port 3001. So, we listen for all incoming udp messages on the 3001 port and we display them on the webpage thanks to the websocket.
