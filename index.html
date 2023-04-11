@@ -22,187 +22,174 @@
 			href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"
 		/>
 		<script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
+		<style>
+            .bg-flat-image {
+                background-image: url('./img/your_flat_image.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+			.custom-img-height {
+				height: 150px;
+				object-fit: cover;
+    		}
+			.top-padding {
+        		padding-top: 10px;
+   			 }
+        </style>
 	</head>
 	<body>
-		<div class="container mx-auto">
-			<h1 class="text-2xl font-bold">microIPCore Demo</h1>
-			<p class="my-5">This demo showcase packet sent between two microIPCore</p>
+		<!-- Title -->
+
+		<div class="container mx-auto top-padding">
+			<div class="flex flex-wrap justify-between items-start">
+				<div class="w-full sm:w-auto">
+					<img class="rounded-t-lg float-right sm:float-none" src="./img/Logo-Acklio-Original-SCHC everywhere.svg" alt="logo" style="width: 150px;" />
+				</div>
+				<div class="w-full sm:w-auto">
+					<h1 class="text-2xl font-bold text-indigo-900">Acklio microIPCore Demo</h1>
+					<p class="my-5 text-gray-700">This demo showcases packets sent between two microIPCore devices.</p>
+				</div>
+				
+			</div>
 		</div>
-		<div class="container mx-auto mt-8">
+		<!--
+		<div class="container mx-auto top-padding">
+			<img class="rounded-t-lg" src="./img/Logo-Acklio-Original-SCHC everywhere.svg" alt="logo" style="width: 150px;"/>
+			<h1 class="text-2xl font-bold text-indigo-900">Acklio microIPCore Demo</h1>
+			<p class="my-5 text-gray-700">This demo showcase packet sent between two microIPCore</p>
+		</div>
+		-->
+		
+
+		<div class="container mx-auto mt-8 bg-flat-image">
 			<div class="flex flex-row">
-				<div class="basis-1/5 ml-2 mr-2 mt-2">
-					<div
-						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border"
-					>
-						<div class="mx-4 -mt-6 translate-y-0 h-48">
-							<img
-								class="rounded-lg max-h-48"
-								src="./img/device.jpg"
-								alt="card image"
-							/>
-						</div>
+
+				<!-- Column Left -->
+				<div class="basis-1/5 ml-2 mr-2 mt-2 space-y-10">
+					
+					<!-- Device 1 -->
+					<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+						<img class="rounded-t-lg" src="./img/device.jpg" alt="" />
 						<div class="text-secondary flex-1 p-6">
-							<a href="#">
-								<h4 class="font-bold text-blue-500">Device 1</h4>
+							<a>
+								<h5 class="mb-2 text-2xl font-bold tracking-tight text-pink-500 dark:text-white">
+									Device #1
+								</h5>
 							</a>
-							<p class="opcacity-60 mb-3">
-								The device can send and receive IP packets to the microIPCore.
+							<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+								Enabled with SCHC library
 							</p>
-							<button
-								class="middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-								data-ripple-light="true"
-								id="device1SendButton"
-							>
-								Send a message to the server
-							</button>
-							<div
-								class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
-								id="device1ReceivedMessage"
-							>
-								<div class="mt-px">message received</div>
+							
+							<div class="space-y-2">
+								<button
+									class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+									data-ripple-light="true"
+									id="device1SendButton"
+								>
+									Send uplink message
+									<svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+								</button>
+								<div
+									class="inline-flex items-center px-3 py-2 text-sm text-center text-gray-900 rounded-lg bg-gray-50 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+									id="device1ReceivedMessage"
+								>
+									<div class="mt-px">Downlink received</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div
-						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border mt-8"
-					>
-						<div class="mx-4 -mt-6 translate-y-0 h-48">
-							<img
-								class="rounded-lg max-h-48"
-								src="./img/device.jpg"
-								alt="card image"
-							/>
-						</div>
+
+					<!-- Device 2 -->
+					<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+						<img class="rounded-t-lg" src="./img/device.jpg" alt="" />
 						<div class="text-secondary flex-1 p-6">
-							<a href="#">
-								<h4 class="font-bold text-blue-500">Device 2</h4>
-							</a>
-							<p class="opcacity-60 mb-3">
-								The device can send and receive IP packets to the server. All
-								the packets are compressed on the microIPCore.
-							</p>
-							<button
-								class="middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-								data-ripple-light="true"
-								id="device2SendButton"
-							>
-								Send a message to the server
-							</button>
-							<div
-								class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
-								id="device2ReceivedMessage"
-							>
-								<div class="mt-px">message received</div>
+							<h5 class="mb-2 text-2xl font-bold tracking-tight text-pink-500 dark:text-white">Device #2</h5>
+							<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Enabled with SCHC library</p>
+							<div class="space-y-2">
+								<button
+									class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+									data-ripple-light="true"
+									id="device2SendButton"
+								>
+									Send uplink message
+									<svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+								</button>
+								<div
+									class="inline-flex items-center px-3 py-2 text-sm text-center text-gray-900 rounded-lg bg-gray-50 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+									id="device2ReceivedMessage"
+								>
+									<div class="mt-px">Downlink received</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="basis-1/5 ml-2 mr-2 mt-2">
-					<div
-						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border"
-					>
-						<div class="mx-4 -mt-6 translate-y-0 h-48">
-							<img
-								class="rounded-lg max-h-48"
-								src="./img/gateway.jpg"
-								alt="card image"
-							/>
-						</div>
+
+				<!-- Middle space-->
+				<div class="basis-3/5 ml-2 mr-2 mt-2">
+                    <!-- Empty space for the bg img -->
+                </div>
+				
+				
+				<!-- Column right -->
+				<div class="basis-1/4 ml-2 mr-2 mt-2">
+
+					<!-- App Server Card -->
+					<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+						<img class="rounded-t-lg" src="./img/server.jpg" alt="" />
 						<div class="text-secondary flex-1 p-6">
-							<h4 class="font-bold text-blue-500">microIPCore Gateway</h4>
-							<p class="opcacity-60 mb-3">
-								The microIPCore is in Gateway mode. It compress every packet and
-								send them to the server.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="basis-1/5 ml-2 mr-2 mt-2">
-					<div
-						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border"
-					>
-						<div class="mx-4 -mt-6 translate-y-0 h-48">
-							<img
-								class="rounded-lg"
-								src="./img/cloud.jpg"
-								alt="card image"
-							/>
-						</div>
-						<div class="text-secondary flex-1 p-6">
-							<h4 class="font-bold text-blue-500">Internet</h4>
-							<p class="opcacity-60 mb-3">
-								The compressed packets are exchanged over the Internet.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="basis-1/5 ml-2 mr-2 mt-2">
-					<div
-						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border"
-					>
-						<div class="mx-4 -mt-6 translate-y-0 h-48">
-							<img
-								class="rounded-lg"
-								src="./img/router.jpg"
-								alt="card image"
-							/>
-						</div>
-						<div class="text-secondary flex-1 p-6">
-							<h4 class="font-bold text-blue-500">microIPCore Cloud</h4>
-							<p class="opcacity-60 mb-3">
-								The microIPCore is in Cloud mode. It decompress every packet and
-								send them uncompressed to the App Server.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="basis-1/5 ml-2 mr-2 mt-2">
-					<div
-						class="shadow-card shadow-xl flex flex-col rounded-xl bg-white bg-clip-border"
-					>
-						<div class="mx-4 -mt-6 translate-y-0 h-48">
-								<img
-									class="rounded-lg"
-									src="./img/server.jpg"
-									alt="card image"
-								/>
-						</div>
-						<div class="text-secondary flex-1 p-6">
-							<h4 class="font-bold text-blue-500">App Server</h4>
-							<p class="opcacity-60 mb-3">
-								The App Server can send data back to the devices. All the data
-								will be compressed by the microIPCore.
-							</p>
-							<button
-								class="middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-								data-ripple-light="true"
-								id="serverSendMessageToDevice1Button"
-							>
-								Send a message to the device 1
-							</button>
-							<div
-								class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
-								id="serverReceivedMessageFromDevice1"
-							>
-								<div class="mt-px">message received from device 1</div>
-							</div>
-							<button
-								class="middle none center mt-4 rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-								data-ripple-light="true"
-								id="serverSendMessageToDevice2Button"
-							>
-								Send a message to the device 2
-							</button>
-							<div
-								class="center relative inline-block select-none whitespace-nowrap rounded-lg bg-gray-500 py-2 px-3.5 align-baseline font-sans text-xs font-bold uppercase leading-none text-white"
-								id="serverReceivedMessageFromDevice2"
-							>
-								<div class="mt-px">message received from device 2</div>
+							<h5 class="mb-2 text-2xl font-bold tracking-tight text-pink-500 dark:text-white">Application Server</h5>
+							<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Off the shelf app server, communicating standard IP-based messages. </p>
+						
+							<div class="space-y-4">
+								<!-- Comm with Device 1 -->
+									<div class="space-y-2">
+										<button
+											class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+											data-ripple-light="true"
+											id="serverSendMessageToDevice1Button"
+										>
+											Device #1: send downlink
+											<svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+										</button>
+										<div
+											class="inline-flex items-center px-3 py-2 text-sm text-center text-gray-900 rounded-lg bg-gray-50 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+											id="serverReceivedMessageFromDevice1"
+										>
+											<div class="mt-px">Device #1: uplink received</div>
+										</div>
+									</div>
+								
+								<!-- Comm with Device 2 -->
+								
+									<div class="space-y-2">
+
+										<button
+											class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+											data-ripple-light="true"
+											id="serverSendMessageToDevice2Button"
+										>
+										Device #1: send downlink
+										<svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+										</button>
+										<div
+											class="inline-flex items-center px-3 py-2 text-sm text-center text-gray-900 rounded-lg bg-gray-50 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+											id="serverReceivedMessageFromDevice2"
+										>
+											<div class="mt-px">Device #2: uplink received</div>
+										</div>
+									</div>
+								
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+
+		<div class="container mx-auto top-padding text-center">
+			<p class="my-5 text-gray-700">Copyright © Acklio 2023. All rights reserved.</p>
 		</div>
 		<!-- <div class="container mx-auto">
 			<h1>Log</h1>
