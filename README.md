@@ -123,10 +123,16 @@ INFO[0000] core-schc initialized                         mode=Cloud
 There's a docker-compose file in the demo folder. You can launch the demo with the following command:
 
 ```bash
-  docker-compose up
+  make install && make start
 ```
 
 Your microIPCore demo will be available on the 3000 port.
+
+To stop the demo, you can run the following command:
+
+```bash
+  make stop
+```
 
 ## Demo
 
