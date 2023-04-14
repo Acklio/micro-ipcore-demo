@@ -13,6 +13,7 @@ services:
       - MICRO_IPCORE_DEVICE=http://micro-ipcore-device:5683
       - MICRO_IPCORE_CLOUD=http://micro-ipcore-cloud:5684
     command: npm run start
+    
   micro-ipcore-device:
     image: acklio/micro-ipcore:latest
     container_name: micro-ipcore-device
