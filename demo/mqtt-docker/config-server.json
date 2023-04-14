@@ -1,0 +1,10 @@
+{
+    "log_level":5,
+    "context_path": "context.json",
+    "core_mode": 0,    
+    "broker_addr": "broker:1883",
+    "ip_pubs_topic":"server/sendip",
+    "ip_subs_topic":"server/recieveip",
+    "lpwan_pubs_topic":"device/recievelpwan",
+    "lpwan_subs_topic":"server/recievelpwan"
+}

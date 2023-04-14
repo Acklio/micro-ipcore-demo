@@ -1,0 +1,53 @@
+version: '3.2'
+services:
+  node:
+    image: node:16.20.0-alpine
+    container_name: node
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    working_dir: /app
+    environment:
+      - MICRO_IPCORE_DEVICE=http://micro-ipcore-device:5683
+      - MICRO_IPCORE_CLOUD=http://micro-ipcore-cloud:5684
+    command: npm run start
+
+  micro-ipcore-device:
+    image: acklio/micro-ipcore:latest
+    container_name: micro-ipcore-device
+    restart: always
+    depends_on: 
+      - node
+      - broker
+    volumes:
+      - ./demo/mqtt-docker:/opt/acklio/demo/mqtt
+    command: 
+      - mqtt
+      - --config=/opt/acklio/demo/mqtt/config-device.json
+      - --context_path=/opt/acklio/demo/mqtt/context.json
+
+  micro-ipcore-cloud:
+    image: acklio/micro-ipcore:latest
+    container_name: micro-ipcore-cloud
+    restart: always
+    depends_on: 
+      - node
+      - broker
+    volumes:
+      - ./demo/mqtt-docker:/opt/acklio/demo/mqtt
+    command: 
+      - mqtt
+      - --config=/opt/acklio/demo/mqtt/config-server.json
+      - --context_path=/opt/acklio/demo/mqtt/context.json
+
+  broker:
+    image: eclipse-mosquitto:2.0.15
+    container_name: broker
+    restart: always
+    ports:
+      - 1883:1883
+    volumes:
+      - ./demo/mqtt-docker:/mosquitto/config/
+    

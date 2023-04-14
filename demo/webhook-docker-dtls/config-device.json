@@ -1,0 +1,13 @@
+{
+    "log_level":5,
+    "syslog_url":"node:3001",
+    "context_path": "demo/webhook/context.json",
+    "core_mode": 1,
+    "bind_addr": "0.0.0.0:5683",
+    "ip_remote_addr":"http://node:3000/webhook_device",
+    "lpwan_remote_addr":"http://micro-ipcore-cloud:5684/webhook/lpwan-packet",
+    "enable_dtls": true,
+    "dtls_addr": "micro-ipcore-cloud:5684",
+    "psk": "123456"
+
+}
